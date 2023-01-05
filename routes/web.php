@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,20 +19,24 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Route::prefix('dosen')->group(function () {
+    
+//     Route::get('profil', function () {
+//         $title = 'Profil';
+//         $text = 'Halaman Profil Dosen';
+
+//         return view('dosen.index', compact('title', 'text'));
+//     });
+
+//     Route::get('ampu', function () {
+//         $title = 'Data_pengampu';
+//         $text = 'Halaman Data Mata Kuliah Yang diampu';
+
+//         return view('dosen.index', compact('title', 'text'));
+//     });
+    
+// });
+
 Route::prefix('dosen')->group(function () {
-    
-    Route::get('profil', function () {
-        $title = 'Profil';
-        $text = 'Halaman Profil Dosen';
-
-        return view('dosen.index', compact('title', 'text'));
-    });
-
-    Route::get('ampu', function () {
-        $title = 'Data_pengampu';
-        $text = 'Halaman Data Mata Kuliah Yang diampu';
-
-        return view('dosen.index', compact('title', 'text'));
-    });
-    
+    Route::get("profil", [DosenController::class, 'profil']);
 });
